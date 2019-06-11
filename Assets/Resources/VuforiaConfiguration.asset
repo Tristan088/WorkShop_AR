@@ -17,11 +17,11 @@ MonoBehaviour:
     ufoLicenseKey: QWU0VzMxSC8vLy8vQUFBQUtLOVlSNGtyMzBvSW5pdHpYejFlZFZoK3haZFplRVRBWUpCVWdKUlo0V3N6K1pPUWN6aEtlaEgrQnJGdXk5SzlLNmxmY3FNVjlmSmdaM0JuSzg5S0N6WFZ6UlBJVlp3ejNnamRYMko2aDdKc0tib0lBTWhRbFFjcjBBRklaNncyRzBWVkJBQ2lQb05wS05VR0p2WTlMOFI1TEU0WExyY01HQjE1NTBzbzJjMDlpRW1heDNqdjg1ZDlBT29Ud0JIRGRoVXVpdzA0R0VvU21hMjJVVWVRNlNtcEFXV2VRQ0VKckFuLzM0Z0tsWG5sQVZHRzFzYlQ2R2MwWmlkUGloNHNvd3hYK2RhUUVMRStpU0J4YXV4S3BCTklKQWkzUmtxOFdLZ1JYaFF0UU0wK1R4ejFrc1VIRXUxZXhIREZnZjlObVErYklBaEtDQ1c1TXVHUm1yWWFjSFVvRzlwTHgrTDVPenZYUUdjaTJzRUg=
     delayedInitialization: 0
     cameraDeviceModeSetting: -1
-    maxSimultaneousImageTargets: 1
+    maxSimultaneousImageTargets: 3
     maxSimultaneousObjectTargets: 1
     useDelayedLoadingObjectTargets: 0
     version: 8.1.7
-    eulaAcceptedVersions: 
+    eulaAcceptedVersions: '{"Values":["0.0","8.0","8.1"]}'
   digitalEyewear:
     cameraOffset: 0.06
     distortionRenderingLayer: 31
