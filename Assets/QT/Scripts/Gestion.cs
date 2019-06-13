@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class Gestion : MonoBehaviour
 {
+    public Text hpDisplayer;
+    public Text hpToAorS;
+
     public Text nbDice;
     public int _nbDice = 0;
     public Text dice;
@@ -19,6 +22,7 @@ public class Gestion : MonoBehaviour
     public bool canThrow = false;
 
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +32,7 @@ public class Gestion : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        hpDisplayer.text = WordSettings.Instance.hpCurrent.ToString();
     }
 
     public void ValidDice()
@@ -72,6 +76,27 @@ public class Gestion : MonoBehaviour
 
             }
             resultat.text += resultatTotal.ToString();
+        }
+    }
+
+    public void AddHP()
+    {
+        if(int.Parse(hpToAorS.text) > 0 && int.Parse(hpToAorS.text) <= 200)
+        {
+            WordSettings.Instance.hpCurrent += int.Parse(hpToAorS.text);
+            if (WordSettings.Instance.hpCurrent >= WordSettings.Instance.hpMax)
+            {
+                WordSettings.Instance.hpCurrent = WordSettings.Instance.hpMax;
+            }
+        }
+
+    }
+
+    public void TakeHP()
+    {
+        if (int.Parse(hpToAorS.text) > 0 && int.Parse(hpToAorS.text) <= 200)
+        {
+            WordSettings.Instance.hpCurrent -= int.Parse(hpToAorS.text);
         }
     }
 }
