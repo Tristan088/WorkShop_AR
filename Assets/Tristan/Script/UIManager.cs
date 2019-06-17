@@ -14,6 +14,9 @@ public class UIManager : MonoBehaviour
     public Text surnom;
     public Text statPoint;
     public Text[] stats;
+    public Text[] statsMod;
+    public Text caracPoint;
+    public Text[] carac;
     
 
     // Start is called before the first frame update
@@ -25,16 +28,16 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        statPoint.text = WordSettings.Instance.statsPoint.ToString();
+       
     }
 
     public void LvlPlusUn()
     {
         
         lvl++;
-        if (lvl > 30)
+        if (lvl > 15)
         {
-            lvl = 30;
+            lvl = 15;
         }
         lvlText.text = lvl.ToString();
     }
@@ -65,9 +68,19 @@ public class UIManager : MonoBehaviour
             {
                 WordSettings.Instance.statsPoint -= 5;
                 WordSettings.Instance.statsMod [i] = (int)Mathf.Floor((WordSettings.Instance.stats[i] - 50) / 10f);
+                if (WordSettings.Instance.statsMod[i] > 0)
+                {
+                    statsMod[i].text = "(+" + WordSettings.Instance.statsMod[i] + ")";
+                }
+                else
+                {
+                    statsMod[i].text = "(" + WordSettings.Instance.statsMod[i] + ")";
+
+                }
                 stats[i].text = WordSettings.Instance.stats[i].ToString();
             }
-        }        
+        }
+        statPoint.text = WordSettings.Instance.statsPoint.ToString();
     }
 
     public void StatMinusFive( int i)
@@ -83,47 +96,88 @@ public class UIManager : MonoBehaviour
             {
                 WordSettings.Instance.statsPoint += 5;
                 WordSettings.Instance.statsMod[i] = (int)Mathf.Floor((WordSettings.Instance.stats[i] - 50) / 10f);
-                stats[i].text = WordSettings.Instance.stats[i].ToString();
+            if (WordSettings.Instance.statsMod[i] > 0)
+            {
+                statsMod[i].text = "(+" + WordSettings.Instance.statsMod[i] + ")";
             }
-        
+            else
+            {
+                statsMod[i].text = "(" + WordSettings.Instance.statsMod[i] + ")";
+
+            }
+            stats[i].text = WordSettings.Instance.stats[i].ToString();
+            }
+        statPoint.text = WordSettings.Instance.statsPoint.ToString();
+
+    }
+
+
+    public void CaracPlusUn(int i)
+    {
+        if (WordSettings.Instance.caracPoint > 0)
+        {
+            WordSettings.Instance.caracLvlPoint[i]++;
+            if(WordSettings.Instance.caracLvlPoint[i] + WordSettings.Instance.caracBase[i]>20)
+            {
+                WordSettings.Instance.caracLvlPoint[i]--;
+            }
+            else
+            {
+                 WordSettings.Instance.caracPoint--;
+                ValidateStats();
+            }
+
+        }
+        caracPoint.text = WordSettings.Instance.caracPoint.ToString();
+    }
+
+    public void CaracMoinUn(int i)
+    {
+        WordSettings.Instance.caracLvlPoint[i]--;
+        {
+            if(WordSettings.Instance.caracLvlPoint[i]<0)
+            {
+                WordSettings.Instance.caracLvlPoint[i] = 0;
+            }
+            else
+            {
+                WordSettings.Instance.caracPoint++;
+                ValidateStats();
+            }
+        }
+        caracPoint.text = WordSettings.Instance.caracPoint.ToString();
     }
 
    
 
     public void ValidateNom()
     {
+        WordSettings.Instance.ResetPlayer();
         WordSettings.Instance.prenom = prenom.text;
         WordSettings.Instance.nom = nom.text;
         WordSettings.Instance.surnom = surnom.text;
         WordSettings.Instance.lvl = lvl;
+        WordSettings.Instance.SetCaracPoint(lvl);
+        WordSettings.Instance.SetBonusVie();
         WordSettings.Instance.statsPoint = 220 + 10 * (int)Mathf.Floor(lvl/6) - WordSettings.Instance.SomStat();
+        statPoint.text = WordSettings.Instance.statsPoint.ToString();
+        caracPoint.text = WordSettings.Instance.caracPoint.ToString();
     }
 
 
     public void ValidateStats()
     {
-        WordSettings.Instance.carac[1] = 10 + WordSettings.Instance.statsMod[0];
-        WordSettings.Instance.carac[2] = 10 + WordSettings.Instance.statsMod[1];
-        WordSettings.Instance.carac[3] = 10 + WordSettings.Instance.statsMod[1];
-        WordSettings.Instance.carac[4] = 10 + WordSettings.Instance.statsMod[2];
-        WordSettings.Instance.carac[5] = 10 + WordSettings.Instance.statsMod[3];
-        WordSettings.Instance.carac[6] = 10 + WordSettings.Instance.statsMod[2];
-        WordSettings.Instance.carac[8] = 10 + WordSettings.Instance.statsMod[1];
-        WordSettings.Instance.carac[9] = 10 + WordSettings.Instance.statsMod[2];
-        WordSettings.Instance.carac[10] = (int)Mathf.Floor( WordSettings.Instance.stats[1] / 10);
-        WordSettings.Instance.carac[11] = 10;
-        WordSettings.Instance.carac[12] = 10 + WordSettings.Instance.statsMod[1] + WordSettings.Instance.statsMod[2];
-        WordSettings.Instance.carac[13] = 10 + WordSettings.Instance.statsMod[3];
-        WordSettings.Instance.carac[14] = 10 + WordSettings.Instance.statsMod[3];
-        WordSettings.Instance.carac[15] = 10 + WordSettings.Instance.statsMod[3];
-        WordSettings.Instance.carac[16] = 10 + WordSettings.Instance.statsMod[3];
-        WordSettings.Instance.carac[17] = 10 + WordSettings.Instance.statsMod[3];
-        WordSettings.Instance.carac[18] = (int)Mathf.Floor(WordSettings.Instance.stats[3] / 10);
-
-
+        
+        WordSettings.Instance.UpdateCarac();
+        UpdateCarac();
     }
 
-
-
+    public void UpdateCarac()
+    {
+        for(int i = 0; i<carac.Length; i++)
+        {
+            carac[i].text = (WordSettings.Instance.carac[i]+ WordSettings.Instance.caracMod[i]).ToString();
+        }
+    }
 
 }
