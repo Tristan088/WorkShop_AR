@@ -32,7 +32,7 @@ public class Gestion : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        hpDisplayer.text = WordSettings.Instance.hpCurrent.ToString();
+        hpDisplayer.text = "" + WordSettings.Instance.hpCurrent + "/" + WordSettings.Instance.hpMax;
     }
 
     public void ValidDice()

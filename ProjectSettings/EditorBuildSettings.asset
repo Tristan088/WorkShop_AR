@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/QT/Scenes/Scene_Test_QT.unity
+    guid: 7b0dc6426f304a24b83b4d1065f5dbd0
   m_configObjects: {}
