@@ -180,4 +180,10 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void ValidateCarac()
+    {
+        WordSettings.Instance.hpCurrent =  WordSettings.Instance.hpMax = WordSettings.Instance.carac[0] * 4;
+
+    }
+
 }

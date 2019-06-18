@@ -32,7 +32,8 @@ public class WordSettings : SingletonSettings<WordSettings>
 
     public int armeAtck;
     public int armePrd;
-    public int armorDef;
+    public int armorDefPhy;
+    public int armorDefMag;
     public int armorEsq;
 
 
@@ -87,7 +88,8 @@ public class WordSettings : SingletonSettings<WordSettings>
         caracPoint = 0;
         armeAtck = 0;
         armePrd = 0;
-        armorDef = 0;
+        armorDefPhy = 0;
+        armorDefMag = 0;
         armorEsq = 0;
     }
 
@@ -111,10 +113,10 @@ public class WordSettings : SingletonSettings<WordSettings>
         carac[2] = caracBase[2] + caracLvlPoint[2] + statsMod[1];
         carac[3] = caracBase[3] + caracLvlPoint[3] + statsMod[1];
         carac[4] = caracBase[4] + caracLvlPoint[4] + statsMod[2];
-        carac[5] = caracBase[5] + caracLvlPoint[5] + statsMod[3] + armorDef;
-        carac[6] = caracBase[6] + caracLvlPoint[6] + statsMod[2] + armorDef;
+        carac[5] = caracBase[5] + caracLvlPoint[5] + statsMod[3] + armorDefPhy;
+        carac[6] = caracBase[6] + caracLvlPoint[6] + statsMod[2] + armorDefMag;
         carac[7] = caracBase[7] + caracLvlPoint[7] + Mathf.Max(statsMod[1], statsMod[3] + armePrd);
-        carac[8] = caracBase[8] + caracLvlPoint[8] + statsMod[1];
+        carac[8] = caracBase[8] + caracLvlPoint[8] + statsMod[1] + armorEsq;
         carac[9] = caracBase[9] + caracLvlPoint[9] + statsMod[2];
         carac[10] = caracBase[10]  + caracLvlPoint[10] + (int)Mathf.Floor(stats[1] / 10);
         carac[11] = caracBase[11] + caracLvlPoint[11] ;
