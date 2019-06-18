@@ -1,18 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ItemGestionnary : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Text myName;
+    public Text myType;
+    public Text myInfo;
 
-    // Update is called once per frame
-    void Update()
+    public void SetName(string newName)
     {
-        
+        myName.text = newName;
     }
 }
