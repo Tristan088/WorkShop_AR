@@ -19,6 +19,14 @@ public class ItemGestionnary : MonoBehaviour
     public GameObject _infoGiver_return;
     public Button infoGiver_return;
 
+    public GameObject _infoGiver_DeleteDelete;
+
+    public GameObject _infoGiver_DeleteYes;
+    public Button infoGiver_DeleteYes;
+
+    public GameObject _infoGiver_DeleteNo;
+    public Button infoGiver_DeleteNo;
+
     public Text[] infoGiver_bonusStats = new Text[20];
     public Text[] infoGiver_bonusStatsChange = new Text[20];
 
@@ -44,7 +52,17 @@ public class ItemGestionnary : MonoBehaviour
         _infoGiver_return = infoGiver.transform.GetChild(3).gameObject;
         infoGiver_return = _infoGiver_return.GetComponent<Button>();
 
-        infoGiver_delete.onClick.AddListener(DeleteItem);
+        _infoGiver_DeleteDelete = infoGiver.transform.GetChild(4).gameObject;
+
+        _infoGiver_DeleteYes = _infoGiver_DeleteDelete.transform.GetChild(1).gameObject;
+        infoGiver_DeleteYes = _infoGiver_DeleteYes.GetComponent<Button>();
+
+        _infoGiver_DeleteNo = _infoGiver_DeleteDelete.transform.GetChild(2).gameObject;
+        infoGiver_DeleteNo = _infoGiver_DeleteNo.GetComponent<Button>();
+
+        infoGiver_delete.onClick.AddListener(VerrifDelete);
+        infoGiver_DeleteNo.onClick.AddListener(PasDelete);
+        infoGiver_DeleteYes.onClick.AddListener(DeleteItem);
         infoGiver_return.onClick.AddListener(StopShow);
         infoGiver_name.text = myName.text;
 
@@ -78,7 +96,18 @@ public class ItemGestionnary : MonoBehaviour
             bonusStats[i] = int.Parse(infoGiver_bonusStatsChange[i].text);
             infoGiver_bonusStatsChange[i].text = "0";
         }
+        _infoGiver_DeleteDelete.SetActive(false);
         infoGiver.SetActive(false);
+    }
+
+    public void VerrifDelete()
+    {
+        _infoGiver_DeleteDelete.SetActive(!_infoGiver_DeleteDelete.activeSelf);
+    }
+
+    public void PasDelete()
+    {
+        _infoGiver_DeleteDelete.SetActive(false);
     }
 
     public void DeleteItem()
