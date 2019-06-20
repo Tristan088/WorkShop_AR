@@ -1,0 +1,230 @@
+fileFormatVersion: 2
+guid: 0ef5ea63b1557f24f889dd8051f7e56c
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: caampfire
+    100002: //RootNode
+    100004: polySurface288
+    100006: polySurface327
+    100008: polySurface329
+    100010: polySurface372
+    100012: polySurface373
+    100014: polySurface417
+    100016: polySurface440
+    100018: polySurface441
+    100020: polySurface444
+    100022: polySurface622
+    100024: polySurface638
+    100026: polySurface639
+    100028: polySurface640
+    100030: polySurface641
+    100032: polySurface642
+    100034: polySurface643
+    100036: polySurface674
+    100038: polySurface690
+    100040: polySurface738
+    100042: polySurface904
+    100044: polySurface905
+    100046: polySurface907
+    100048: polySurface909
+    400000: caampfire
+    400002: //RootNode
+    400004: polySurface288
+    400006: polySurface327
+    400008: polySurface329
+    400010: polySurface372
+    400012: polySurface373
+    400014: polySurface417
+    400016: polySurface440
+    400018: polySurface441
+    400020: polySurface444
+    400022: polySurface622
+    400024: polySurface638
+    400026: polySurface639
+    400028: polySurface640
+    400030: polySurface641
+    400032: polySurface642
+    400034: polySurface643
+    400036: polySurface674
+    400038: polySurface690
+    400040: polySurface738
+    400042: polySurface904
+    400044: polySurface905
+    400046: polySurface907
+    400048: polySurface909
+    2100000: gold
+    2100002: Default_Material
+    2100004: material
+    2100006: material_metal
+    2100008: transparent_material
+    2100010: Nature
+    2100012: lambert1
+    2300000: polySurface288
+    2300002: polySurface327
+    2300004: polySurface329
+    2300006: polySurface372
+    2300008: polySurface373
+    2300010: polySurface417
+    2300012: polySurface440
+    2300014: polySurface441
+    2300016: polySurface444
+    2300018: polySurface622
+    2300020: polySurface638
+    2300022: polySurface639
+    2300024: polySurface640
+    2300026: polySurface641
+    2300028: polySurface642
+    2300030: polySurface643
+    2300032: polySurface674
+    2300034: polySurface690
+    2300036: polySurface738
+    2300038: polySurface905
+    2300040: polySurface907
+    2300042: polySurface909
+    3300000: polySurface288
+    3300002: polySurface327
+    3300004: polySurface329
+    3300006: polySurface372
+    3300008: polySurface373
+    3300010: polySurface417
+    3300012: polySurface440
+    3300014: polySurface441
+    3300016: polySurface444
+    3300018: polySurface622
+    3300020: polySurface638
+    3300022: polySurface639
+    3300024: polySurface640
+    3300026: polySurface641
+    3300028: polySurface642
+    3300030: polySurface643
+    3300032: polySurface674
+    3300034: polySurface690
+    3300036: polySurface738
+    3300038: polySurface905
+    3300040: polySurface907
+    3300042: polySurface909
+    4300000: polySurface288
+    4300002: polySurface327
+    4300004: polySurface329
+    4300006: polySurface372
+    4300008: polySurface373
+    4300010: polySurface417
+    4300012: polySurface440
+    4300014: polySurface441
+    4300016: polySurface444
+    4300018: polySurface622
+    4300020: polySurface638
+    4300022: polySurface639
+    4300024: polySurface640
+    4300026: polySurface641
+    4300028: polySurface642
+    4300030: polySurface643
+    4300032: polySurface674
+    4300034: polySurface690
+    4300036: polySurface738
+    4300038: polySurface907
+    4300040: polySurface905
+    4300042: polySurface909
+    2186277476908879412: ImportLogs
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Nature
+    second: {fileID: 2100000, guid: 0fc30f9c21c470c4eb065a7fca84b648, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: material
+    second: {fileID: 2100000, guid: bb8aabc72f5278343b235a7fba61a301, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: material_metal
+    second: {fileID: 2100000, guid: 22795dd34cbe8a54c93921e9149bc314, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
