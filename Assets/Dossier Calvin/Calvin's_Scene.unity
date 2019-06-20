@@ -296,13 +296,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e7e05554e9c1214ea6ce0dab317e089, type: 3}
---- !u!43 &277693771
+--- !u!4 &360410263 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2145004731805272146, guid: 8e7e05554e9c1214ea6ce0dab317e089,
+    type: 3}
+  m_PrefabInstance: {fileID: 1714629733}
+  m_PrefabAsset: {fileID: 0}
+--- !u!43 &386961086
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ImageTargetMesh12168
+  m_Name: ImageTargetMesh30064
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -456,12 +462,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!4 &360410263 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2145004731805272146, guid: 8e7e05554e9c1214ea6ce0dab317e089,
-    type: 3}
-  m_PrefabInstance: {fileID: 1714629733}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &438850331 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2145004731805272146, guid: 8e7e05554e9c1214ea6ce0dab317e089,
@@ -608,7 +608,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534669902}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.59, y: 2.8, z: -12.14}
+  m_LocalPosition: {x: -53.6, y: 2.8, z: -12.14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -620,16 +620,16 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2145004732244941019}
   m_PrefabAsset: {fileID: 0}
---- !u!21 &1537106624
+--- !u!21 &1565060434
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: '--- EMPTY ---Material
+  m_Name: 'towertile1Material
 
-    12178'
+    30074'
   m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
@@ -642,7 +642,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 86d90a6ca06244b8ba1a5c5a736370a8, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
@@ -925,7 +925,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1930499841}
-  m_Mesh: {fileID: 277693771}
+  m_Mesh: {fileID: 386961086}
 --- !u!23 &1930499843
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -943,7 +943,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 1537106624}
+  - {fileID: 1565060434}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -999,14 +999,14 @@ MonoBehaviour:
   m_Script: {fileID: -1631628248, guid: bab6fa851cf5a1a4bba3cec5f191cb8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mTrackableName: '--- EMPTY ---'
+  mTrackableName: towertile1
   mPreserveChildSize: 0
   mInitializedInEditor: 1
-  mDataSetPath: '--- EMPTY ---'
+  mDataSetPath: Vuforia/WorkshopAR.xml
   mAspectRatio: 1
   mImageTargetType: 0
-  mWidth: 4.190024
-  mHeight: 4.190024
+  mWidth: 2
+  mHeight: 2
 --- !u!4 &1930499847
 Transform:
   m_ObjectHideFlags: 0
@@ -1016,7 +1016,7 @@ Transform:
   m_GameObject: {fileID: 1930499841}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4.190024, y: 4.190024, z: 4.190024}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 438850331}
   - {fileID: 708104329}

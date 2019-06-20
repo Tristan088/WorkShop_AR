@@ -13,6 +13,8 @@ public class UIManager : MonoBehaviour
     public Text prenom;
     public Text surnom;
     public Text statPoint;
+    public Text classe;
+    public Text race;
     public Text[] stats;
     public Text[] statsMod;
     public Text caracPoint;
@@ -160,6 +162,8 @@ public class UIManager : MonoBehaviour
         WordSettings.Instance.SetCaracPoint(lvl);
         WordSettings.Instance.SetBonusVie();
         WordSettings.Instance.statsPoint = 220 + 10 * (int)Mathf.Floor(lvl/6) - WordSettings.Instance.SomStat();
+        WordSettings.Instance.classe = classe.text;
+        WordSettings.Instance.race = race.text;
         statPoint.text = WordSettings.Instance.statsPoint.ToString();
         caracPoint.text = WordSettings.Instance.caracPoint.ToString();
     }
