@@ -43,7 +43,7 @@ public class UIDisplay : MonoBehaviour
         for (int i = 0; i<3; i++)
         {
             stats[i].text = WordSettings.Instance.stats[i].ToString();
-            statsMod[i].text = WordSettings.Instance.statsMod[i].ToString();
+            statsMod[i].text = "("+WordSettings.Instance.statsMod[i].ToString()+")";
 
         }
         for (int i = 0; i<18; i++)

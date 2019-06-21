@@ -27,8 +27,8 @@ public class WordSettings : SingletonSettings<WordSettings>
     public int bonusDVie;
 
     public int lvl;
-     public int statsPoint;
-     public int caracPoint;
+    public int statsPoint;
+    public int caracPoint;
 
     public int armeAtck;
     public int armePrd;
@@ -36,6 +36,7 @@ public class WordSettings : SingletonSettings<WordSettings>
     public int armorDefMag;
     public int armorEsq;
 
+ 
 
 
     public bool PlayerExist()
@@ -74,7 +75,7 @@ public class WordSettings : SingletonSettings<WordSettings>
             caracBase[i] = 10;
         }
 
-        caracBase[0] = 6 + Mathf.Max(Random.Range(1, 6), Random.Range(1, 6), Random.Range(1, 6));
+        caracBase[0] = 6 + (int)Mathf.Round(Mathf.Max(Random.Range(1, 5), Random.Range(1, 5), Random.Range(1, 5)));
         dVie = 2;
         bonusDVie = 0;
         caracBase[10] = caracBase[18] = caracBase[19] = 0;
@@ -128,7 +129,7 @@ public class WordSettings : SingletonSettings<WordSettings>
         carac[17] = caracBase[17] + caracLvlPoint[17] + statsMod[3];
         carac[18] = caracBase[18] + caracLvlPoint[18] +(int)Mathf.Floor(stats[3] / 10);
         carac[19] = caracBase[19] + caracLvlPoint[19] ;
-
+        
     }
 
 
@@ -142,7 +143,7 @@ public class WordSettings : SingletonSettings<WordSettings>
         bonusDVie = 0;
         for(int i = 0; i <lvl; i++)
         {
-            bonusDVie += Random.Range(1, dVie + 1);
+            bonusDVie += (int)Mathf.Round(Random.Range(1, dVie ));
         }
     }
 
@@ -153,6 +154,15 @@ public class WordSettings : SingletonSettings<WordSettings>
         {
             caracPoint += caracPointPerLvl[i];
         }
+    }
+
+
+    public void LvlUp()
+    {
+        lvl++;
+        caracPoint += caracPointPerLvl[lvl];
+        bonusDVie += (int)Mathf.Round(Random.Range(1, dVie));
+
     }
 }
 
