@@ -19,12 +19,13 @@ public class UIManager : MonoBehaviour
     public Text[] statsMod;
     public Text caracPoint;
     public Text[] carac;
+
     
 
     // Start is called before the first frame update
     void Start()
     {
-        lvl = 1;
+        lvl = 1;      
     }
 
     // Update is called once per frame
