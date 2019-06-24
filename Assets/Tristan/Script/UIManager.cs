@@ -19,6 +19,7 @@ public class UIManager : MonoBehaviour
     public Text[] statsMod;
     public Text caracPoint;
     public Text[] carac;
+   
 
     
 
@@ -183,6 +184,7 @@ public class UIManager : MonoBehaviour
         {
             carac[i].text = (WordSettings.Instance.carac[i]+ WordSettings.Instance.caracMod[i]).ToString();
         }
+       
     }
 
     public void ValidateCarac()
