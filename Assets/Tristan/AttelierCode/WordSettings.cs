@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 [CreateAssetMenu(menuName = "Settings/World")]
@@ -36,15 +37,27 @@ public class WordSettings : SingletonSettings<WordSettings>
     public int armorDefMag;
     public int armorEsq;
 
- 
 
+    #region QT SPACE VARIABLE   
+
+    public Dictionary<string, Dictionary<string, List<int>>> inventory = new Dictionary<string, Dictionary<string, List<int>>>();
+    
+    #endregion
+
+    private void OnEnable()
+    {
+        inventory.Add("weapon", new Dictionary<string, List<int>>());
+        inventory.Add("armor", new Dictionary<string, List<int>>());
+        inventory.Add("accesory", new Dictionary<string, List<int>>());
+        inventory.Add("other", new Dictionary<string, List<int>>());
+
+        
+    }
 
     public bool PlayerExist()
     {
         return nom != null;
     }
-
-    
 
     public void ResetPlayer()
     {
@@ -94,8 +107,6 @@ public class WordSettings : SingletonSettings<WordSettings>
         armorEsq = 0;
     }
 
-
-
     public int SomStat()
     {
         int rep = 0;
@@ -132,7 +143,6 @@ public class WordSettings : SingletonSettings<WordSettings>
         
     }
 
-
     public void SetdVie(int i)
     {
         dVie = 2 + i;
@@ -147,7 +157,6 @@ public class WordSettings : SingletonSettings<WordSettings>
         }
     }
 
-
     public void SetCaracPoint(int n)
     {
         for(int i = 0; i<=n; i++ )
@@ -156,7 +165,6 @@ public class WordSettings : SingletonSettings<WordSettings>
         }
     }
 
-
     public void LvlUp()
     {
         lvl++;
@@ -164,6 +172,23 @@ public class WordSettings : SingletonSettings<WordSettings>
         bonusDVie += (int)Mathf.Round(Random.Range(1, dVie));
 
     }
+
+    #region QT SPACE FONCTION
+
+    public void AddWeapon(GameObject newItem)
+    {
+        inventory["weapon"].Add(newItem.GetComponent<Text>().text, newItem.GetComponent<ItemGestionnary>().bonusStats);
+    }
+
+    public void MAJWeapon(GameObject item)
+    {
+        inventory["weapon"][item.GetComponent<Text>().text] = item.GetComponent<ItemGestionnary>().bonusStats;
+    }
+
+    public void DeleteWeapon(GameObject item)
+    {
+        inventory["weapon"].Remove(item.GetComponent<Text>().text);
+    }
+
+    #endregion
 }
-
-
