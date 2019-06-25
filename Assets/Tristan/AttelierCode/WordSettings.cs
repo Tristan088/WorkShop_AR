@@ -7,7 +7,6 @@ using UnityEngine.UI;
 [CreateAssetMenu(menuName = "Settings/World")]
 public class WordSettings : SingletonSettings<WordSettings>
 {
-
     public int hpMax;
     public int hpCurrent;
 
@@ -37,26 +36,15 @@ public class WordSettings : SingletonSettings<WordSettings>
     public int armorDefMag;
     public int armorEsq;
 
-
     #region QT SPACE VARIABLE   
 
-    public Dictionary<string, Dictionary<string, List<int>>> inventory = new Dictionary<string, Dictionary<string, List<int>>>();
+    public Dictionary<string, Dictionary<string, List<int>>> inventory;
     
     #endregion
 
-    private void OnEnable()
-    {
-        inventory.Add("weapon", new Dictionary<string, List<int>>());
-        inventory.Add("armor", new Dictionary<string, List<int>>());
-        inventory.Add("accesory", new Dictionary<string, List<int>>());
-        inventory.Add("other", new Dictionary<string, List<int>>());
-
-        
-    }
-
     public bool PlayerExist()
     {
-        return nom != null;
+        return string.IsNullOrEmpty(nom);
     }
 
     public void ResetPlayer()
@@ -76,8 +64,6 @@ public class WordSettings : SingletonSettings<WordSettings>
             caracLvlPoint[i] = 0;
         }
 
-        
-
         for (int i = 1; i< 10; i++)
         {
             caracBase[i] = 10;
@@ -94,8 +80,6 @@ public class WordSettings : SingletonSettings<WordSettings>
         caracBase[10] = caracBase[18] = caracBase[19] = 0;
 
         nom = prenom = surnom = null;
-
-
 
         lvl = 1;
         statsPoint = 0;
@@ -175,19 +159,41 @@ public class WordSettings : SingletonSettings<WordSettings>
 
     #region QT SPACE FONCTION
 
+    public void NewInventory()
+    {
+        inventory = new Dictionary<string, Dictionary<string, List<int>>>();
+        inventory.Add("weapon", new Dictionary<string, List<int>>());
+        inventory.Add("armor", new Dictionary<string, List<int>>());
+        inventory.Add("accesory", new Dictionary<string, List<int>>());
+        inventory.Add("other", new Dictionary<string, List<int>>());
+    }
+
     public void AddWeapon(GameObject newItem)
     {
-        inventory["weapon"].Add(newItem.GetComponent<Text>().text, newItem.GetComponent<ItemGestionnary>().bonusStats);
+        inventory["weapon"].Add(newItem.GetComponent<Text>().text, new List<int>(20));
+        Debug.Log("j'ajoute une arme");
+        Debug.Log("inventaire count : " + inventory["weapon"].Count);
     }
 
     public void MAJWeapon(GameObject item)
     {
-        inventory["weapon"][item.GetComponent<Text>().text] = item.GetComponent<ItemGestionnary>().bonusStats;
+        ItemGestionnary gestionnary = item.GetComponent<ItemGestionnary>();
+        if(gestionnary == null)
+        {
+            Debug.LogError("No Gestionnary item on " + item);
+            return;
+        }
+
+        inventory["weapon"][gestionnary.myName.text] = gestionnary.bonusStats;
+        Debug.Log("je mets a jour une arme");
+
     }
 
     public void DeleteWeapon(GameObject item)
     {
-        inventory["weapon"].Remove(item.GetComponent<Text>().text);
+        inventory["weapon"].Remove(item.GetComponent<ItemGestionnary>().myName.text);
+        Debug.Log("je supprime une arme");
+
     }
 
     #endregion

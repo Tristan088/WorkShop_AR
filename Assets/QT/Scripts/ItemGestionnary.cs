@@ -78,6 +78,17 @@ public class ItemGestionnary : MonoBehaviour
         myTypeOfItem = newType;
     }
 
+    public void SetItem(string newName, string newType, List<int> stats)
+    {
+        myName.text = newName;
+        myTypeOfItem = newType;
+
+        for (int i = 0; i < 20; i++)
+        {
+            bonusStats.Add(stats[i]);
+        }
+    }
+
     public void ShowItem()
     {
         infoGiver.SetActive(true);
@@ -96,6 +107,12 @@ public class ItemGestionnary : MonoBehaviour
             bonusStats[i] = int.Parse(infoGiver_bonusStatsChange[i].text);
             infoGiver_bonusStatsChange[i].text = "0";
         }
+
+        if (myTypeOfItem == "Weapons")
+        {
+            WordSettings.Instance.MAJWeapon(gameObject);
+        }
+
         _infoGiver_DeleteDelete.SetActive(false);
         infoGiver.SetActive(false);
     }
