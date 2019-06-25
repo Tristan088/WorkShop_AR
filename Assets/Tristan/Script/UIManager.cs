@@ -19,6 +19,8 @@ public class UIManager : MonoBehaviour
     public Text[] statsMod;
     public Text caracPoint;
     public Text[] carac;
+    public Button validationStat;
+    public Button validationCarac;
    
 
     
@@ -85,6 +87,7 @@ public class UIManager : MonoBehaviour
             }
         }
         statPoint.text = WordSettings.Instance.statsPoint.ToString();
+        EnableValidButton();
     }
 
     public void StatMinusFive( int i)
@@ -112,6 +115,8 @@ public class UIManager : MonoBehaviour
             stats[i].text = WordSettings.Instance.stats[i].ToString();
             }
         statPoint.text = WordSettings.Instance.statsPoint.ToString();
+        EnableValidButton();
+
 
     }
 
@@ -121,7 +126,7 @@ public class UIManager : MonoBehaviour
         if (WordSettings.Instance.caracPoint > 0)
         {
             WordSettings.Instance.caracLvlPoint[i]++;
-            if(WordSettings.Instance.caracLvlPoint[i] + WordSettings.Instance.caracBase[i]>20)
+            if(WordSettings.Instance.caracLvlPoint[i] + WordSettings.Instance.caracBase[i]>20 && i!=0)
             {
                 WordSettings.Instance.caracLvlPoint[i]--;
             }
@@ -133,13 +138,15 @@ public class UIManager : MonoBehaviour
 
         }
         caracPoint.text = WordSettings.Instance.caracPoint.ToString();
+        EnableValidButton();
+
     }
 
     public void CaracMoinUn(int i)
     {
         WordSettings.Instance.caracLvlPoint[i]--;
         {
-            if(WordSettings.Instance.caracLvlPoint[i]<0)
+            if(WordSettings.Instance.caracLvlPoint[i]<0) 
             {
                 WordSettings.Instance.caracLvlPoint[i] = 0;
             }
@@ -150,9 +157,11 @@ public class UIManager : MonoBehaviour
             }
         }
         caracPoint.text = WordSettings.Instance.caracPoint.ToString();
+        EnableValidButton();
+
     }
 
-   
+
 
     public void ValidateNom()
     {
@@ -168,6 +177,8 @@ public class UIManager : MonoBehaviour
         WordSettings.Instance.race = race.text;
         statPoint.text = WordSettings.Instance.statsPoint.ToString();
         caracPoint.text = WordSettings.Instance.caracPoint.ToString();
+        EnableValidButton();
+
     }
 
 
@@ -191,6 +202,27 @@ public class UIManager : MonoBehaviour
     {
         WordSettings.Instance.hpCurrent =  WordSettings.Instance.hpMax = WordSettings.Instance.carac[0] * 4;
 
+    }
+
+    public void EnableValidButton()
+    {
+        if(WordSettings.Instance.caracPoint == 0)
+        {
+            validationCarac.interactable = true;
+        }
+        else
+        {
+            validationCarac.interactable = false;
+        }
+
+        if(WordSettings.Instance.statsPoint == 0)
+        {
+            validationStat.interactable = true;
+        }
+        else
+        {
+            validationStat.interactable = false;
+        }
     }
 
 }

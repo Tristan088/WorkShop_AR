@@ -18,17 +18,22 @@ public class UIDisplay : MonoBehaviour
     public Text[] stats;
     public Text[] statsMod;
     public Text[] carac;
-
+    public GameObject nouveau;
+    public GameObject _continue;
     // Start is called before the first frame update
     void Start()
     {
-        
+
+
+        if (string.IsNullOrEmpty(WordSettings.Instance.nom))
+        {
+            _continue.SetActive(false);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     public void UpdateText()

@@ -42,6 +42,7 @@ public class WordSettings : SingletonSettings<WordSettings>
     public bool PlayerExist()
     {
         return nom != null;
+            
     }
 
     
@@ -159,10 +160,12 @@ public class WordSettings : SingletonSettings<WordSettings>
 
     public void LvlUp()
     {
-        lvl++;
-        caracPoint += caracPointPerLvl[lvl];
-        bonusDVie += (int)Mathf.Round(Random.Range(1, dVie));
-
+        if (lvl < 15)
+        {
+            lvl++;
+            caracPoint += caracPointPerLvl[lvl];
+            bonusDVie += (int)Mathf.Round(Random.Range(1, dVie));
+        }
     }
 }
 

@@ -10,6 +10,9 @@ public class UILvlUp : MonoBehaviour
     public Text caracPoint;
     public Text[] carac;
     private int[] caracBefore;
+    public GameObject oui;
+    public GameObject non;
+    public Button validate;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +35,7 @@ public class UILvlUp : MonoBehaviour
             caracBefore[i] = WordSettings.Instance.caracLvlPoint[i];
         }
         ValidateStats();
+        EnableValidate();
     }
 
     public void CaracPlusUn(int i)
@@ -39,7 +43,9 @@ public class UILvlUp : MonoBehaviour
         if (WordSettings.Instance.caracPoint > 0)
         {
             WordSettings.Instance.caracLvlPoint[i]++;
-            if (WordSettings.Instance.caracLvlPoint[i] + WordSettings.Instance.caracBase[i] > 20)
+            if (WordSettings.Instance.caracLvlPoint[i] + WordSettings.Instance.caracBase[i] > 20 && i !=0
+                
+                )
             {
                 WordSettings.Instance.caracLvlPoint[i]--;
             }
@@ -50,7 +56,8 @@ public class UILvlUp : MonoBehaviour
             }
 
         }
-        caracPoint.text = WordSettings.Instance.caracPoint.ToString();
+        EnableValidate();
+        
     }
 
     public void CaracMoinUn(int i)
@@ -67,7 +74,8 @@ public class UILvlUp : MonoBehaviour
                 ValidateStats();
             }
         }
-        caracPoint.text = WordSettings.Instance.caracPoint.ToString();
+        EnableValidate();
+        
     }
 
     public void ValidateStats()
@@ -75,6 +83,7 @@ public class UILvlUp : MonoBehaviour
 
         WordSettings.Instance.UpdateCarac();
         UpdateCarac();
+        caracPoint.text = WordSettings.Instance.caracPoint.ToString();
     }
 
     public void UpdateCarac()
@@ -88,6 +97,27 @@ public class UILvlUp : MonoBehaviour
 
     public void alertDisplay()
     {
-        alert.text = "Voulez vous passer level " + (WordSettings.Instance.lvl + 1) + "?";
+        if (WordSettings.Instance.lvl != 15)
+        {
+            alert.text = "Voulez vous passer level " + (WordSettings.Instance.lvl + 1) + "?";
+        }
+        else
+        {
+            alert.text = "Level max atteint !";
+            oui.SetActive( false);
+            non.GetComponentInChildren<Text>().text = "return";
+        }
+    }
+
+    public void EnableValidate()
+    {
+        if (WordSettings.Instance.caracPoint == 0)
+        {
+            validate.interactable = true;
+        }
+        else
+        {
+            validate.interactable = false;
+        }
     }
 }
