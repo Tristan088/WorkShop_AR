@@ -1,12 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 [CreateAssetMenu(menuName = "Settings/World")]
 public class WordSettings : SingletonSettings<WordSettings>
 {
-
     public int hpMax;
     public int hpCurrent;
 
@@ -36,16 +36,16 @@ public class WordSettings : SingletonSettings<WordSettings>
     public int armorDefMag;
     public int armorEsq;
 
- 
+    #region QT SPACE VARIABLE   
 
+    public Dictionary<string, Dictionary<string, List<int>>> inventory;
+    
+    #endregion
 
     public bool PlayerExist()
     {
-        return nom != null;
-            
+        return string.IsNullOrEmpty(nom);
     }
-
-    
 
     public void ResetPlayer()
     {
@@ -64,8 +64,6 @@ public class WordSettings : SingletonSettings<WordSettings>
             caracLvlPoint[i] = 0;
         }
 
-        
-
         for (int i = 1; i< 10; i++)
         {
             caracBase[i] = 10;
@@ -83,8 +81,6 @@ public class WordSettings : SingletonSettings<WordSettings>
 
         nom = prenom = surnom = null;
 
-
-
         lvl = 1;
         statsPoint = 0;
         caracPoint = 0;
@@ -94,8 +90,6 @@ public class WordSettings : SingletonSettings<WordSettings>
         armorDefMag = 0;
         armorEsq = 0;
     }
-
-
 
     public int SomStat()
     {
@@ -133,7 +127,6 @@ public class WordSettings : SingletonSettings<WordSettings>
         
     }
 
-
     public void SetdVie(int i)
     {
         dVie = 2 + i;
@@ -148,7 +141,6 @@ public class WordSettings : SingletonSettings<WordSettings>
         }
     }
 
-
     public void SetCaracPoint(int n)
     {
         for(int i = 0; i<=n; i++ )
@@ -157,16 +149,52 @@ public class WordSettings : SingletonSettings<WordSettings>
         }
     }
 
-
     public void LvlUp()
     {
-        if (lvl < 15)
-        {
-            lvl++;
-            caracPoint += caracPointPerLvl[lvl];
-            bonusDVie += (int)Mathf.Round(Random.Range(1, dVie));
-        }
+        lvl++;
+        caracPoint += caracPointPerLvl[lvl];
+        bonusDVie += (int)Mathf.Round(Random.Range(1, dVie));
+
     }
+
+    #region QT SPACE FONCTION
+
+    public void NewInventory()
+    {
+        inventory = new Dictionary<string, Dictionary<string, List<int>>>();
+        inventory.Add("weapon", new Dictionary<string, List<int>>());
+        inventory.Add("armor", new Dictionary<string, List<int>>());
+        inventory.Add("accesory", new Dictionary<string, List<int>>());
+        inventory.Add("other", new Dictionary<string, List<int>>());
+    }
+
+    public void AddWeapon(GameObject newItem)
+    {
+        inventory["weapon"].Add(newItem.GetComponent<Text>().text, new List<int>(20));
+        Debug.Log("j'ajoute une arme");
+        Debug.Log("inventaire count : " + inventory["weapon"].Count);
+    }
+
+    public void MAJWeapon(GameObject item)
+    {
+        ItemGestionnary gestionnary = item.GetComponent<ItemGestionnary>();
+        if(gestionnary == null)
+        {
+            Debug.LogError("No Gestionnary item on " + item);
+            return;
+        }
+
+        inventory["weapon"][gestionnary.myName.text] = gestionnary.bonusStats;
+        Debug.Log("je mets a jour une arme");
+
+    }
+
+    public void DeleteWeapon(GameObject item)
+    {
+        inventory["weapon"].Remove(item.GetComponent<ItemGestionnary>().myName.text);
+        Debug.Log("je supprime une arme");
+
+    }
+
+    #endregion
 }
-
-

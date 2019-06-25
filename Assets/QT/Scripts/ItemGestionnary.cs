@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class ItemGestionnary : MonoBehaviour
 {
     public Text myName;
-
+    public string myTypeOfItem;
+    
     public GameObject infoGiver_Template;
     public GameObject infoGiver;
 
@@ -30,10 +31,7 @@ public class ItemGestionnary : MonoBehaviour
     public Text[] infoGiver_bonusStats = new Text[20];
     public Text[] infoGiver_bonusStatsChange = new Text[20];
 
-    //public Text myType;
-    //public Text myInfo;
-
-    public int[] bonusStats = new int[20];
+    public List<int> bonusStats = new List<int>();
 
     private void Start()
     {
@@ -67,15 +65,28 @@ public class ItemGestionnary : MonoBehaviour
         infoGiver_name.text = myName.text;
 
         gameObject.name = myName.text;
+
         for(int i = 0; i < 20; i++)
         {
-            bonusStats[i] = 0;
+            bonusStats.Add(0);
         }
     }
 
-    public void SetName(string newName)
+    public void SetName(string newName, string newType)
     {
         myName.text = newName;
+        myTypeOfItem = newType;
+    }
+
+    public void SetItem(string newName, string newType, List<int> stats)
+    {
+        myName.text = newName;
+        myTypeOfItem = newType;
+
+        for (int i = 0; i < 20; i++)
+        {
+            bonusStats.Add(stats[i]);
+        }
     }
 
     public void ShowItem()
@@ -96,6 +107,12 @@ public class ItemGestionnary : MonoBehaviour
             bonusStats[i] = int.Parse(infoGiver_bonusStatsChange[i].text);
             infoGiver_bonusStatsChange[i].text = "0";
         }
+
+        if (myTypeOfItem == "Weapons")
+        {
+            WordSettings.Instance.MAJWeapon(gameObject);
+        }
+
         _infoGiver_DeleteDelete.SetActive(false);
         infoGiver.SetActive(false);
     }
@@ -112,6 +129,11 @@ public class ItemGestionnary : MonoBehaviour
 
     public void DeleteItem()
     {
+        if(myTypeOfItem == "Weapons")
+        {
+            WordSettings.Instance.DeleteWeapon(gameObject);
+        }
+
         for (int i = 0; i < 20; i++)
         {
             infoGiver_bonusStatsChange[i].text = "0";
