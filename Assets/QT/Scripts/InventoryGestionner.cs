@@ -9,28 +9,40 @@ public class InventoryGestionner : MonoBehaviour
     public GameObject accesoireTemplate;
     public GameObject autreTemplate;
 
-    private void Update()
-    {
-        Debug.Log("inventaire count : " + WordSettings.Instance.inventory.Count);
-        Debug.Log("weapons count : " + WordSettings.Instance.inventory["weapon"].Count);
-    }
-
     public void GetInventory()
     {
-        Debug.Log("je refait mon inventaire");
-        Debug.Log("inventaire count : " + WordSettings.Instance.inventory.Count);
-
-        if (WordSettings.Instance.inventory.Count != 0)
+        //recharger l'inventaire
+        if(WordSettings.Instance.inventory.Count > 0)
         {
-            Debug.Log("j'ai de l' inventaire");
-
-            if (WordSettings.Instance.inventory["weapon"].Count != 0)
+            for(int i = 0; i < 4; i++)
             {
-                Debug.Log("j'ai des armes");
-
-                foreach (KeyValuePair<string, List<int>> item in WordSettings.Instance.inventory["weapon"])
+                if(WordSettings.Instance.inventory[i].myName == "Weapons")
                 {
-                    AddItem(armeTemplate, item.Key, "Weapons", item.Value);
+                    for(int j = 0; j < WordSettings.Instance.inventory[i].items.Count; j++)
+                    {
+                        AddItem(armeTemplate, WordSettings.Instance.inventory[i].items[j].myName, WordSettings.Instance.inventory[i].myName, WordSettings.Instance.inventory[i].items[j].bonusStat);
+                    }
+                }
+                else if (WordSettings.Instance.inventory[i].myName == "Armors")
+                {
+                    for (int j = 0; j < WordSettings.Instance.inventory[i].items.Count; j++)
+                    {
+                        AddItem(armureTemplate, WordSettings.Instance.inventory[i].items[j].myName, WordSettings.Instance.inventory[i].myName, WordSettings.Instance.inventory[i].items[j].bonusStat);
+                    }
+                }
+                else if (WordSettings.Instance.inventory[i].myName == "Accesory")
+                {
+                    for (int j = 0; j < WordSettings.Instance.inventory[i].items.Count; j++)
+                    {
+                        AddItem(accesoireTemplate, WordSettings.Instance.inventory[i].items[j].myName, WordSettings.Instance.inventory[i].myName, WordSettings.Instance.inventory[i].items[j].bonusStat);
+                    }
+                }
+                else if (WordSettings.Instance.inventory[i].myName == "Other")
+                {
+                    for (int j = 0; j < WordSettings.Instance.inventory[i].items.Count; j++)
+                    {
+                        AddItem(autreTemplate, WordSettings.Instance.inventory[i].items[j].myName, WordSettings.Instance.inventory[i].myName, WordSettings.Instance.inventory[i].items[j].bonusStat);
+                    }
                 }
             }
         }

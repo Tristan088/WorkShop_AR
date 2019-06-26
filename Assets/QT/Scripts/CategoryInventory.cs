@@ -7,4 +7,10 @@ public class CategoryInventory
 {
     public string myName;
     public List<Item> items;
+
+    public CategoryInventory(string newName, List<Item> newItems)
+    {
+        myName = newName;
+        items = newItems;
+    }
 }

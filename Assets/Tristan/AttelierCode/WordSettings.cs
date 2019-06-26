@@ -38,7 +38,7 @@ public class WordSettings : SingletonSettings<WordSettings>
 
     #region QT SPACE VARIABLE   
 
-    public Dictionary<string, Dictionary<string, List<int>>> inventory;
+    public List<CategoryInventory> inventory;
     
     #endregion
 
@@ -89,6 +89,8 @@ public class WordSettings : SingletonSettings<WordSettings>
         armorDefPhy = 0;
         armorDefMag = 0;
         armorEsq = 0;
+
+        inventory.Clear();
     }
 
     public int SomStat()
@@ -161,40 +163,129 @@ public class WordSettings : SingletonSettings<WordSettings>
 
     public void NewInventory()
     {
-        inventory = new Dictionary<string, Dictionary<string, List<int>>>();
-        inventory.Add("weapon", new Dictionary<string, List<int>>());
-        inventory.Add("armor", new Dictionary<string, List<int>>());
-        inventory.Add("accesory", new Dictionary<string, List<int>>());
-        inventory.Add("other", new Dictionary<string, List<int>>());
+        inventory.Add(new CategoryInventory("Weapons", new List<Item>()));
+        inventory.Add(new CategoryInventory("Armors", new List<Item>()));
+        inventory.Add(new CategoryInventory("Accesory", new List<Item>()));
+        inventory.Add(new CategoryInventory("Other", new List<Item>()));
     }
 
     public void AddWeapon(GameObject newItem)
     {
-        inventory["weapon"].Add(newItem.GetComponent<Text>().text, new List<int>(20));
-        Debug.Log("j'ajoute une arme");
-        Debug.Log("inventaire count : " + inventory["weapon"].Count);
+        inventory[0].items.Add(new Item(newItem.GetComponent<Text>().text, new List<int>()));
     }
 
     public void MAJWeapon(GameObject item)
     {
-        ItemGestionnary gestionnary = item.GetComponent<ItemGestionnary>();
-        if(gestionnary == null)
+        for (int i = 0; i < inventory[0].items.Count; i++)
         {
-            Debug.LogError("No Gestionnary item on " + item);
-            return;
+            if (inventory[0].items[i].myName == item.name)
+            {
+                inventory[0].items[i].bonusStat = item.GetComponent<ItemGestionnary>().bonusStats;
+                return;
+            }
         }
-
-        inventory["weapon"][gestionnary.myName.text] = gestionnary.bonusStats;
-        Debug.Log("je mets a jour une arme");
-
     }
 
     public void DeleteWeapon(GameObject item)
     {
-        inventory["weapon"].Remove(item.GetComponent<ItemGestionnary>().myName.text);
-        Debug.Log("je supprime une arme");
-
+        for (int i = 0; i < inventory[0].items.Count; i++)
+        {
+            if (inventory[0].items[i].myName == item.name)
+            {
+                inventory[0].items.RemoveAt(i);
+                return;
+            }
+        }
     }
 
+
+    public void AddArmor(GameObject newItem)
+    {
+        inventory[1].items.Add(new Item(newItem.GetComponent<Text>().text, new List<int>()));
+    }
+
+    public void MAJArmor(GameObject item)
+    {
+        for (int i = 0; i < inventory[1].items.Count; i++)
+        {
+            if (inventory[1].items[i].myName == item.name)
+            {
+                inventory[1].items[i].bonusStat = item.GetComponent<ItemGestionnary>().bonusStats;
+                return;
+            }
+        }
+    }
+
+    public void DeleteArmor(GameObject item)
+    {
+        for (int i = 0; i < inventory[1].items.Count; i++)
+        {
+            if (inventory[1].items[i].myName == item.name)
+            {
+                inventory[1].items.RemoveAt(i);
+                return;
+            }
+        }
+    }
+
+
+    public void AddAccesoire(GameObject newItem)
+    {
+        inventory[2].items.Add(new Item(newItem.GetComponent<Text>().text, new List<int>()));
+    }
+
+    public void MAJAccesoire(GameObject item)
+    {
+        for (int i = 0; i < inventory[2].items.Count; i++)
+        {
+            if (inventory[2].items[i].myName == item.name)
+            {
+                inventory[2].items[i].bonusStat = item.GetComponent<ItemGestionnary>().bonusStats;
+                return;
+            }
+        }
+    }
+
+    public void DeleteAccesoire(GameObject item)
+    {
+        for (int i = 0; i < inventory[2].items.Count; i++)
+        {
+            if (inventory[2].items[i].myName == item.name)
+            {
+                inventory[2].items.RemoveAt(i);
+                return;
+            }
+        }
+    }
+
+
+    public void AddOther(GameObject newItem)
+    {
+        inventory[3].items.Add(new Item(newItem.GetComponent<Text>().text, new List<int>()));
+    }
+
+    public void MAJOther(GameObject item)
+    {
+        for (int i = 0; i < inventory[3].items.Count; i++)
+        {
+            if (inventory[3].items[i].myName == item.name)
+            {
+                inventory[3].items[i].bonusStat = item.GetComponent<ItemGestionnary>().bonusStats;
+                return;
+            }
+        }
+    }
+
+    public void DeleteOther(GameObject item)
+    {
+        for (int i = 0; i < inventory[3].items.Count; i++)
+        {
+            if (inventory[3].items[i].myName == item.name)
+            {
+                inventory[3].items.RemoveAt(i);
+                return;
+            }
+        }
+    }
     #endregion
 }

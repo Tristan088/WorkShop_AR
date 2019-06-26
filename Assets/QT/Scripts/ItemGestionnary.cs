@@ -31,7 +31,7 @@ public class ItemGestionnary : MonoBehaviour
     public Text[] infoGiver_bonusStats = new Text[20];
     public Text[] infoGiver_bonusStatsChange = new Text[20];
 
-    public List<int> bonusStats = new List<int>();
+    public List<int> bonusStats = new List<int>(20);
 
     private void Start()
     {
@@ -65,11 +65,6 @@ public class ItemGestionnary : MonoBehaviour
         infoGiver_name.text = myName.text;
 
         gameObject.name = myName.text;
-
-        for(int i = 0; i < 20; i++)
-        {
-            bonusStats.Add(0);
-        }
     }
 
     public void SetName(string newName, string newType)
@@ -105,12 +100,24 @@ public class ItemGestionnary : MonoBehaviour
         for (int i = 0; i < 20; i++)
         {
             bonusStats[i] = int.Parse(infoGiver_bonusStatsChange[i].text);
-            infoGiver_bonusStatsChange[i].text = "0";
+            Debug.Log(i);
         }
 
         if (myTypeOfItem == "Weapons")
         {
             WordSettings.Instance.MAJWeapon(gameObject);
+        }
+        else if(myTypeOfItem == "Armors")
+        {
+            WordSettings.Instance.MAJArmor(gameObject);
+        }
+        else if(myTypeOfItem == "Accesory")
+        {
+            WordSettings.Instance.MAJAccesoire(gameObject);
+        }
+        else if(myTypeOfItem == "Other")
+        {
+            WordSettings.Instance.MAJOther(gameObject);
         }
 
         _infoGiver_DeleteDelete.SetActive(false);
@@ -132,6 +139,18 @@ public class ItemGestionnary : MonoBehaviour
         if(myTypeOfItem == "Weapons")
         {
             WordSettings.Instance.DeleteWeapon(gameObject);
+        }
+        else if (myTypeOfItem == "Armors")
+        {
+            WordSettings.Instance.DeleteArmor(gameObject);
+        }
+        else if (myTypeOfItem == "Accesory")
+        {
+            WordSettings.Instance.DeleteAccesoire(gameObject);
+        }
+        else if (myTypeOfItem == "Other")
+        {
+            WordSettings.Instance.DeleteOther(gameObject);
         }
 
         for (int i = 0; i < 20; i++)
