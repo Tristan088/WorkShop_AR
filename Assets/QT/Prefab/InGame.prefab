@@ -910,6 +910,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myName: {fileID: 3984721522006359558}
+  myTypeOfItem: 
   infoGiver_Template: {fileID: 3984721521635855142}
   infoGiver: {fileID: 0}
   _infoGiver_name: {fileID: 0}
@@ -997,12 +998,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3984721521670743852}
-  m_Father: {fileID: 6960177721379959792}
-  m_RootOrder: 2
+  m_Father: {fileID: 3984721522761230999}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 100, y: -100}
+  m_AnchoredPosition: {x: 99.95001, y: -100}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3984721521085002857
@@ -1260,6 +1261,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myName: {fileID: 3984721522570708149}
+  myTypeOfItem: 
   infoGiver_Template: {fileID: 3984721521635855142}
   infoGiver: {fileID: 0}
   _infoGiver_name: {fileID: 0}
@@ -3629,6 +3631,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemTemplate: {fileID: 3984721522772928811}
   itemName: {fileID: 3984721521778584994}
+  itemType: 
 --- !u!1 &3984721521322139094
 GameObject:
   m_ObjectHideFlags: 0
@@ -3659,7 +3662,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3984721522761230999}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4394,6 +4397,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemTemplate: {fileID: 3984721521067995289}
   itemName: {fileID: 3984721522364671705}
+  itemType: 
 --- !u!1 &3984721521426068632
 GameObject:
   m_ObjectHideFlags: 0
@@ -7947,6 +7951,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemTemplate: {fileID: 3984721521098836355}
   itemName: {fileID: 3984721522682060434}
+  itemType: 
 --- !u!1 &3984721522006359576
 GameObject:
   m_ObjectHideFlags: 0
@@ -8722,7 +8727,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3984721522761230999}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -9756,7 +9761,7 @@ RectTransform:
   m_Children:
   - {fileID: 3984721522213051184}
   m_Father: {fileID: 6960177721379959792}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -10368,6 +10373,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemTemplate: {fileID: 3984721522731124036}
   itemName: {fileID: 3984721522525166373}
+  itemType: 
 --- !u!1 &3984721522212679115
 GameObject:
   m_ObjectHideFlags: 0
@@ -13850,7 +13856,7 @@ RectTransform:
   - {fileID: 3984721522757311079}
   - {fileID: 3984721521635855143}
   m_Father: {fileID: 3984721522761230999}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -14803,6 +14809,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myName: {fileID: 3984721522142645245}
+  myTypeOfItem: 
   infoGiver_Template: {fileID: 3984721521635855142}
   infoGiver: {fileID: 0}
   _infoGiver_name: {fileID: 0}
@@ -15216,12 +15223,13 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 8357043815644588048}
   - {fileID: 3984721521322139095}
   - {fileID: 3984721522101459982}
   - {fileID: 3984721522656535531}
-  - {fileID: 8357043815644588048}
   - {fileID: 3984721522546140040}
   - {fileID: 3984721521770782675}
+  - {fileID: 3984721521085002858}
   m_Father: {fileID: 6960177721379959792}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -15280,6 +15288,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   infoPlayer: {fileID: 3984721521322139092}
+  hP: {fileID: 0}
 --- !u!1 &3984721522772928811
 GameObject:
   m_ObjectHideFlags: 0
@@ -15412,6 +15421,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myName: {fileID: 3984721521025194355}
+  myTypeOfItem: 
   infoGiver_Template: {fileID: 3984721521635855142}
   infoGiver: {fileID: 0}
   _infoGiver_name: {fileID: 0}
@@ -18723,11 +18733,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3984721522761230999}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 99.20003, y: 0}
+  m_AnchoredPosition: {x: 99.20004, y: 0}
   m_SizeDelta: {x: 198.5, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &180498472435399887
@@ -18798,7 +18808,6 @@ RectTransform:
   m_Children:
   - {fileID: 3984721521859153382}
   - {fileID: 3984721522761230999}
-  - {fileID: 3984721521085002858}
   - {fileID: 3984721522164429706}
   m_Father: {fileID: 0}
   m_RootOrder: 0
